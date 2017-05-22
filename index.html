@@ -1,0 +1,194 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="http://brobin.github.io/hacker-bootstrap/css/hacker.css" />
+    <script src="typed.min.js"></script>
+    <script>
+      function isEmpty(s){
+        if(s == undefined || s == null || s == ''){
+          return true;
+        } else {
+          return false;
+        }
+      }
+      function isBlank(s){
+        if(isEmpty(s)){
+          return true;
+        } else {
+          if(s.split('').every(function(char){ return char == "\t" || char == ' '; })){
+            return true;
+          } else {
+            return false;
+          }
+        }
+      }
+      document.addEventListener('DOMContentLoaded', function(){
+        var data = `
+**** Tham gia vào đội ngũ kỹ sư của chúng tôi ! ****
+
+Mô tả công việc:
+- Vận hành và phát triển hơn 100 service: CRM,...
+- Lead hoặc là key person của các dự án sử dụng công nghệ để nâng cao năng suất, chất lượng sản phẩm : Autocall,  Video streaming, searchengine, data warehouse, recomendation, Ecomerce, E- learning,.. 
+- Thực hiện các công việc trong phát triển phần mềm : Phân tích yêu cầu, phân tích hệ thống, nghiên cứu công nghệ, coding, testing,..
+
+Yêu cầu:
+- Tuổi 22 - 27
+  + Vui vẻ, hoà đồng , cởi mở, có tinh thần chia sẻ kinh nghiệm 
+  + Hỗ trợ, giúp đỡ đồng nghiệp. teamwork cao.
+- Chịu được áp lực cao trong công việ, có đam mê chinh phục thử thách mới.
+- Nhiệt tình, trách nhiệm, chủ động tìm tòi, ham học hỏi.
+- Khao khát khẳng định vị trí bản thân.
+
+Quyền Lợi:
+- Được đánh giá tăng lương, thăng chức 2 lần/ năm.
+-  Môi trường startup trẻ trung với nhiều quy tắc " kì quái": Thưởng- đập bàn sếp, bắt quả tang sếp, nhận mình không hiểu; phạt- nịnh sếp. Nói thẳng: cuộc họp, trà đá, bàn tròn cuối kì. Sốc để ra giải pháp chứ không dĩ hoà vi quý.
+- Tạo điều kiện để nghiên cứu tìm hiểu công nghệ, cách làm việc,.. mới.
+        `;
+        data = data.split("\n").map(function(line){
+          if(isBlank(line)){
+            return '<span class="edumall"></span><br />';
+          } else {
+            // var chunkes = line.match(/.{1,80}/g);
+            // return chunkes.map(function(chunk){
+            //   if(chunkes.indexOf(chunk) == 0){
+            //     return "<span class=\"bash\">          #          " + chunk + "</span><br />"
+            //   } else {
+            //     return "<span class=\"bash\">  #  " + chunk + "</span><br />"
+            //   }
+            // }).join("\n")
+            return "<span class=\"edumall\">          #          " + line + "</span><br />"
+          }
+        }).join("\n")
+        data = '<span class="bash"> . edumall.sh</span><br>'
+              + data
+              + '<span class="edumall">                      exit                      <br>'
+              + '<span class="bash"></span>'
+        Typed.new('.element', {
+          strings: [data],
+          typeSpeed: 20,
+          loop: false
+        });
+      });
+    </script>
+    <style>
+      /* Terminal window */
+      body {
+        background-color: #272727;
+        padding: 10px;
+      }
+
+      .fakeButtons {
+        height: 10px;
+        width: 10px;
+        border-radius: 50%;
+        border: 1px solid #000;
+        position: relative;
+        top: 3px;
+        left: 12px;
+        background-color: #ff3b47;
+        border-color: #9d252b;
+        display: inline-block;
+      }
+
+      .fakeMinimize {
+        left: 15px;
+        background-color: #ffc100;
+        border-color: #9d802c;
+      }
+
+      .fakeZoom {
+        left: 20px;
+        background-color: #00d742;
+        border-color: #049931;
+      }
+
+      .fakeMenu {
+        position: relative;
+        width: 550px;
+        box-sizing: border-box;
+        height: 25px;
+        background-color: #bbb;
+        margin: 0 auto;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+      }
+
+      .fakeMenu .title{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        text-align: center;
+        padding: 2px;
+        color: #333;
+        font-weight: bold;
+      }
+
+      .fakeScreen {
+        background-color: #151515;
+        box-sizing: border-box;
+        width: 550px;
+        height: 350px;
+        margin: 0 auto;
+        padding: 10px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        overflow: scroll;
+      }
+
+      /* Command */
+
+      .fakeScreen .element{
+        position: relative;
+        bottom: 0;
+        font-size: 12px;
+      }
+
+      .typed-cursor{
+          opacity: 1;
+          -webkit-animation: blink 0.7s infinite;
+          -moz-animation: blink 0.7s infinite;
+          animation: blink 0.7s infinite;
+      }
+      @keyframes blink{
+          0% { opacity:1; }
+          50% { opacity:0; }
+          100% { opacity:1; }
+      }
+      @-webkit-keyframes blink{
+          0% { opacity:1; }
+          50% { opacity:0; }
+          100% { opacity:1; }
+      }
+      @-moz-keyframes blink{
+          0% { opacity:1; }
+          50% { opacity:0; }
+          100% { opacity:1; }
+      }
+      .element span{
+        color: #fff;
+        margin: 0;
+      }
+      .element .bash:before{
+        content: "bash-3.2$";
+        color: #0c0;
+      }
+      .element .edumall:before{
+        content: "edumall>";
+        color: #0c0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class=fakeMenu>
+      <div class="fakeButtons fakeClose"></div>
+      <div class="fakeButtons fakeMinimize"></div>
+      <div class="fakeButtons fakeZoom"></div>
+      <div class="title">Edumall engineering</div>
+    </div>
+    <div class="fakeScreen">
+      <span class="element"></span>
+    </div>
+  </body>
+</html>
